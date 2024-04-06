@@ -19,7 +19,7 @@ const Notification = ({ selectedSeats }) => {
           <span className="w-[20px] h-[20px] bg-green-500 inline-block mr-2">
             {" "}
           </span>{" "}
-          Ghế đã chọn
+          Ghế đang chọn
         </p>
         <p className="flex items-center text-xl text-white font-semibold">
           <span className="w-[20px] h-[20px] bg-gray-400 inline-block mr-2">
