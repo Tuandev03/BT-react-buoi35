@@ -1,0 +1,16 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+.custom-scrollbar::-webkit-scrollbar {
+  width: 2px; /* Độ rộng của thanh cuộn */
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: #f1f1f1; /* Màu nền của thanh cuộn */
+  border-radius: 4px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: #888; /* Màu của thanh cuộn */
+  border-radius: 4px; /* Bo tròn các góc của thanh cuộn */
+}
