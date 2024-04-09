@@ -1,6 +1,6 @@
 /* eslint-disable */
 const Notification = ({ selectedSeats }) => {
-  // Hàm tính tổng tiền
+  // tính tổng tiền
   const calculateTotalPrice = (selectedSeats) => {
     const totalPrice = selectedSeats.reduce((total, seat) => {
       return total + seat.gia;
@@ -8,18 +8,18 @@ const Notification = ({ selectedSeats }) => {
     return totalPrice.toLocaleString();
   };
   return (
-    <div className="notification w-[600px] h-[800px]  overflow-y-auto  custom-scrollbar">
+    <div className="notification ml-20  w-full h-[800px] overflow-y-auto custom-scrollbar">
       <h1 className="text-white text-3xl font-bold">DANH SÁCH GHẾ BẠN CHỌN</h1>
       <div className="space-y-1 mt-6">
         <p className="flex items-center text-xl text-white font-semibold">
-          <span className="w-[20px] h-[20px]  bg-gray-200 inline-block mr-2 "></span>
+          <span className="w-[20px] h-[20px] bg-gray-200 inline-block mr-2 "></span>
           Ghế chưa chọn
         </p>
         <p className="flex items-center text-xl text-white font-semibold">
           <span className="w-[20px] h-[20px] bg-green-500 inline-block mr-2">
             {" "}
           </span>{" "}
-          Ghế đã chọn
+          Ghế đang chọn
         </p>
         <p className="flex items-center text-xl text-white font-semibold">
           <span className="w-[20px] h-[20px] bg-gray-400 inline-block mr-2">
