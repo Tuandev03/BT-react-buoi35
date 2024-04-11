@@ -1,13 +1,17 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { updateSeat } from "../../redux/slice/movieSlice";
+import {
+  updateSeat,
+  setSelectedSeats,
+  setSelectedSeatIds,
+} from "../../redux/slice/movieSlice";
 import Notification from "./Notification";
 import seatsData from "../../data/seatsData";
 
 const MovieBooking = () => {
-  const [selectedSeats, setSelectedSeats] = useState([]);
-  const [selectedSeatIds, setSelectedSeatIds] = useState([]);
   const seats = useSelector((state) => state.movie.seats);
+  const selectedSeats = useSelector((state) => state.movie.selectedSeats);
+  const selectedSeatIds = useSelector((state) => state.movie.selectedSeatIds);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -22,11 +26,15 @@ const MovieBooking = () => {
     if (selectedSeat && !selectedSeat.daDat) {
       const seatId = `${row}-${seat}`;
       if (!selectedSeats.some((s) => s.soGhe === selectedSeat.soGhe)) {
-        setSelectedSeats([...selectedSeats, selectedSeat]);
-        setSelectedSeatIds([...selectedSeatIds, seatId]);
+        dispatch(setSelectedSeats([...selectedSeats, selectedSeat]));
+        dispatch(setSelectedSeatIds([...selectedSeatIds, seatId]));
       } else {
-        setSelectedSeats(selectedSeats.filter((s) => s.soGhe !== seat));
-        setSelectedSeatIds(selectedSeatIds.filter((id) => id !== seatId));
+        dispatch(
+          setSelectedSeats(selectedSeats.filter((s) => s.soGhe !== seat))
+        );
+        dispatch(
+          setSelectedSeatIds(selectedSeatIds.filter((id) => id !== seatId))
+        );
       }
     }
   };
